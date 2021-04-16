@@ -9,7 +9,7 @@ let origen = document.getElementById("origin")
 let ubicacion = document.getElementById("location")
 let firstAp = document.getElementById("first-ap")
 let lastAp = document.getElementById("last-ap")
-let i = 0
+let i = 3
 
 async function fetchData(API) {
 	try {
@@ -29,10 +29,17 @@ async function fetchData(API) {
         especie.innerHTML = `Specie: ${data.results[i].species}`
         genero.innerHTML = `Gender: ${data.results[i].gender}`
         estatus.innerHTML = `Status: ${data.results[i].status}`
-        origen.innerHTML = `Origin: ${data.results[i].origin.name}`
-        ubicacion.innerHTML = `Actual Locate: ${data.results[i].location.name}`
+        
+        if(data.results[i].location.name != data.results[i].origin.name) {
+            origen.innerHTML = `Origin: ${data.results[i].origin.name}`
+            ubicacion.innerHTML = `Actual Locate: ${data.results[i].location.name}`
+        } else {
+            origen.innerHTML = `Origin: ${data.results[i].origin.name}`
+        }
         firstAp.innerHTML = `First Aparition: ${data2.name} (${data2.episode}) On air: ${data2.air_date}`
-        lastAp.innerHTML = `Last Aparition: ${data3.name} (${data3.episode}) On air: ${data3.air_date}`
+        if(data3.id != data2.id) {
+            lastAp.innerHTML = `Last Aparition: ${data3.name} (${data3.episode}) On air: ${data3.air_date}`
+        }
     } catch (error) {
 		console.log(error)
 	}

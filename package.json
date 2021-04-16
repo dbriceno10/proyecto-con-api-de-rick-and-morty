@@ -1,0 +1,23 @@
+{
+  "name": "proyecto-api-rick-and-morty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "index": "node src/index.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git remote add origin https://github.com/dbriceno10/proyecto-con-api-de-rick-and-morty.git"
+  },
+  "keywords": [
+    "api",
+    "asycn",
+    "promise"
+  ],
+  "author": "Daniel Briceño <daniel.b100726@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0"
+  }
+}

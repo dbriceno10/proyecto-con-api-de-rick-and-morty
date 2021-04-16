@@ -1,18 +1,38 @@
 // const fetchData = require('../src/utils/fetchData')
 const API = "https://rickandmortyapi.com/api/character/"
-let info = document.getElementById("profile")
+let nombre = document.getElementById("name")
+let foto = document.getElementById("photo")
+let especie = document.getElementById("specie")
+let genero = document.getElementById("gender")
+let estatus = document.getElementById("status")
+let origen = document.getElementById("origin")
+let ubicacion = document.getElementById("location")
+let firstAp = document.getElementById("first-ap")
+let lastAp = document.getElementById("last-ap")
+let i = 0
 
 async function fetchData(API) {
 	try {
 		const response = await fetch(API)
 		const data = await response.json()
-
-		console.log(data);
-        // console.log(data.results[0].image)
-        for (let i = 0; i < data.results.length; i++) {
-            console.log(i)
-            info.innerHTML = `<img src="${data.results[i].image}" alt="${data.results[i].name}">`
-        }
+        const response2 = await fetch(`${data.results[i].episode[0]}`)
+        data2 = await response2.json()
+        console.log(`${data.results[i].episode.length}`)
+        console.log(data2.id)
+        const last = data.results[i].episode.length - 1
+        const response3 = await fetch(`${data.results[i].episode[last]}`)
+        const data3 = await response3.json()
+		// console.log(data);
+        // console.log(data.results[i])
+        nombre.innerHTML = `Name: ${data.results[i].name}`
+        foto.innerHTML = `<img src="${data.results[i].image}" alt="${data.results[i].name}">`
+        especie.innerHTML = `Specie: ${data.results[i].species}`
+        genero.innerHTML = `Gender: ${data.results[i].gender}`
+        estatus.innerHTML = `Status: ${data.results[i].status}`
+        origen.innerHTML = `Origin: ${data.results[i].origin.name}`
+        ubicacion.innerHTML = `Actual Locate: ${data.results[i].location.name}`
+        firstAp.innerHTML = `First Aparition: ${data2.name} (${data2.episode}) On air: ${data2.air_date}`
+        lastAp.innerHTML = `Last Aparition: ${data3.name} (${data3.episode}) On air: ${data3.air_date}`
     } catch (error) {
 		console.log(error)
 	}

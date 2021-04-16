@@ -1,6 +1,31 @@
-const fetchData = require('../src/utils/fetchData')
+// const fetchData = require('../src/utils/fetchData')
 const API = "https://rickandmortyapi.com/api/character/"
 let info = document.getElementById("profile")
+
+async function fetchData(API) {
+	try {
+		const response = await fetch(API)
+		const data = await response.json()
+
+		console.log(data);
+        // console.log(data.results[0].image)
+        for (let i = 0; i < data.results.length; i++) {
+            console.log(i)
+            info.innerHTML = `<img src="${data.results[i].image}" alt="${data.results[i].name}">`
+        }
+    } catch (error) {
+		console.log(error)
+	}
+}
+fetchData(API)
+
+// const data = fetch(API)
+// data
+//     .then(response => response.json())
+//     .then(response => console.log(response))
+//     .then(response => console.log(response))
+// 	.catch(error => console.log(error))
+/*
 const consAPI = async (url_api) => {
     try {
         const data = await fetchData(url_api)
@@ -20,7 +45,7 @@ const consAPI = async (url_api) => {
 
 consAPI(API)
 
-
+*/
 // const AFunction = async (url_api) => {
 //     try {
 //         const data = await fetchData(url_api);

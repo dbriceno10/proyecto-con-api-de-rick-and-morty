@@ -1,15 +1,14 @@
 export default class API {
     getCharacter(id) {
-        if(id == 0) {
-            fetch(`https://rickandmortyapi.com/api/character/`)
-            .then((response) => response.json())
-            .then((data) => console.log(data.info.count))
-            .catch((error) =>console.error(error))
-        } else {
-            fetch(`https://rickandmortyapi.com/api/character/${id}`)
-            .then((response) => response.json())
-            .then((data) => console.log(data))
-            .catch((error) =>console.error(error))
+        try {
+            const response = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
+            const data = await response.json
+            return data
+        } catch (error) {
+            console.error(error)
         }
+        // .then((response) => response.json())
+        // .then((data) => console.log(data))
+        // .catch((error) =>console.error(error))
     }
 }

@@ -1,34 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ficha Técnica</title>
-        <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./css/bootstrap.min.css">
-        <link rel="stylesheet" href="./css/style.css">
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Técnica</title>
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
         <img src="./assets/images/logo@2x.png" width="280" class="logo" alt="logo">
-        <main>
-            <div>
-                <div>
-                    <h2 id="name"></h2>
-                    <div id="photo"></div>
-                    <div id="specie"></div>
-                    <div id="gender"></div>
-                    <div></div>
-                    <div id=""></div>
-                </div>
+    </header>
+    <main>
+        <div class="placeholder-container">
+            <h1 id="character-name-placeholder" class="character-name-placeholder"></h1>
+        </div>
+            <div class="grid">
+            <span class="asset top">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="line"></span>
+            </span>
+            <!-- <img class="logo" src="./static/images/logo@2x.png" width="280" alt=""> -->
+            <div class="social">
+                <a href="#">
+                <img src="./static/images/instagram.svg" alt="Instagram">
+                </a>
+                <a href="#">
+                <img src="./static/images/facebook.svg" alt="Facebook">
+                </a>
+                <a href="#">
+                <img src="./static/images/twitter.svg" alt="Twitter">
+                </a>
             </div>
-        </main>
-        <!-- <div>
-            <div id="profile">0</div>
-        </div> -->
-        <script type="module" src="./src/main.js"></script>
-        <!-- <script src="./src/index.js"></script> -->
-        <!-- <script src="./src/utils/fetchData.js"></script> -->
-    </body>
+            <div class="navigation name">
+                <a href="#">Name</a>
+            </div>
+            <div id="character-name-container" class="character-name-container">
+        
+            </div>
+        
+            <div id="character-image-container" class="character-image-container">
+            </div>
+            <div class="navigation about">
+                <a href="#">About</a>
+            </div>
+        
+        
+            <div id="character-description-container" class="character-description-container">
+        
+            </div>
+            <span class="asset bottom">
+                <span class="line"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </span>
+        
+            <div></div>
+            <div class="learn-more">
+                <span>learn more</span>
+            </div>
+        
+            <div class="arrow" id="load-next"></div>
+        
+            </div>
+    </main>
+    <!-- <div>
+        <div id="profile">0</div>
+    </div> -->
+    <script type="module" src="./src/main.js"></script>
+    <!-- <script src="./src/index.js"></script> -->
+    <!-- <script src="./src/utils/fetchData.js"></script> -->
+</body>
 </html>

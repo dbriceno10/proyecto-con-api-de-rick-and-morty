@@ -1,4 +1,5 @@
 const returnApiCharacter = (id) => `https://rickandmortyapi.com/api/character/${id}`
+const API = `https://rickandmortyapi.com/api/character/`
 // async function returnEpisode (url) {
 //     const response = await fetch(url)
 //     const data = await response.json()
@@ -8,7 +9,7 @@ const returnApiCharacter = (id) => `https://rickandmortyapi.com/api/character/${
 //         console.error(error)
 //     }
 // }
-
+let maxId = 0
 let nombre = document.getElementById("name")
 let foto = document.getElementById("photo")
 let especie = document.getElementById("specie")
@@ -50,27 +51,31 @@ async function fetchData(id) {
 	}
 }
 async function countId() {
-    const API = `https://rickandmortyapi.com/api/character/`
     try {
         const response = await fetch(API)
         const data = await response.json()
-        return data.info.count
+        for(let i = 0; i <= data.info.count; i++) {
+            maxId = i
+        }
     } catch (error) {
         console.error(error)
     }
 }
+countId()
+let counter = 1
+fetchData(counter)
+const nextButton = () => {
+    counter = counter + 1
+    if (counter <= 0) {
+        counter = 1
+    } else if (counter >= maxId) {
+        counter = maxId
+    }
+    console.log(counter)
+    console.log("Count: " + maxId)
+    fetchData(counter)
+}
 
-// let nextButton = () => {
-//     const maxId = countId()
-//     let counter = 0
-//     counter+= 1
-//     if (counter <= 0) {
-//         counter = 1
-//     } else if (counter >= maxId) {
-//         counter = maxId
-//     }
-//     console.log(counter)
-//     return counter
-// }
-fetchData(1)
+console.log(counter)
+// fetchData(counter)
 

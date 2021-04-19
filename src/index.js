@@ -38,6 +38,7 @@ async function fetchData(id) {
 	try {
 		const response = await fetch(API)
 		const data = await response.json()
+        console.log(data)
         const firstAparition = data.episode[0]
         const LastAparition = data.episode[data.episode.length - 1]
         const responseF = await fetch(firstAparition)
@@ -51,7 +52,7 @@ async function fetchData(id) {
         estatus.innerHTML = `Status: ${data.status}`
         if(data.location.name != data.origin.name) {
             origen.innerHTML = `Origin: ${data.origin.name}`
-            ubicacion.innerHTML = `Actual Locate: ${data.location.name}`
+            ubicacion.innerHTML = `Actual Location: ${data.location.name}`
         } else {
             origen.innerHTML = `Origin: ${data.origin.name}`
         }

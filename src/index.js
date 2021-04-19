@@ -10,6 +10,7 @@ const API = `https://rickandmortyapi.com/api/character/`
 //     }
 // }
 let maxId = 0
+let operador
 let nombre = document.getElementById("name")
 let foto = document.getElementById("photo")
 let especie = document.getElementById("specie")
@@ -62,20 +63,28 @@ async function countId() {
     }
 }
 countId()
-let counter = 1
-fetchData(counter)
-const nextButton = () => {
-    counter = counter + 1
-    if (counter <= 0) {
-        counter = 1
-    } else if (counter >= maxId) {
-        counter = maxId
-    }
-    console.log(counter)
-    console.log("Count: " + maxId)
-    fetchData(counter)
-}
+let id = 1
+fetchData(id)
 
-console.log(counter)
-// fetchData(counter)
+const callToAction = (action) => {
+    operador = action
+}
+const changeButton = () => {
+    if (operador == "+") {
+        id+=1
+        if (id <= 0) {
+            id = 1
+        } else if (id > maxId) {
+            id = maxId
+        }
+    } else {
+        id-=1
+        if (id <= 0) {
+            id = 1
+        } else if (id > maxId) {
+            id = maxId
+        }
+    }
+    fetchData(id)
+}
 

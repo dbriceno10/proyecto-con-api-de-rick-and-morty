@@ -33,7 +33,7 @@ async function fetchData(id) {
         const responseL = await fetch(LastAparition)
         const dataL = await responseL.json()
         nombre.innerHTML = `Name: ${data.name}`
-        foto.innerHTML = `<img src="${data.image}" alt="${data.name}">`
+        foto.innerHTML = `<img src="${data.image}" alt="${data.name} id: ${data.id}" title="Number(id): ${data.id}">`
         especie.innerHTML = `Specie: ${data.species}`
         genero.innerHTML = `Gender: ${data.gender}`
         estatus.innerHTML = `Status: ${data.status}`
@@ -63,9 +63,15 @@ async function countId() {
     }
 }
 countId()
-let id = 1
+let item = localStorage.getItem("id")
+let id = Number(item)
+// if (id == 0) {
+//     fetchData(1)
+// } else {
+//     fetchData(id)
+// }
 fetchData(id)
-
+console.log(id)
 const callToAction = (action) => {
     operador = action
 }
@@ -77,6 +83,7 @@ const changeButton = () => {
         } else if (id > maxId) {
             id = maxId
         }
+        localStorage.setItem("id", id)
     } else {
         id-=1
         if (id <= 0) {
@@ -84,7 +91,9 @@ const changeButton = () => {
         } else if (id > maxId) {
             id = maxId
         }
+        localStorage.setItem("id", id)
     }
+    
     fetchData(id)
 }
 

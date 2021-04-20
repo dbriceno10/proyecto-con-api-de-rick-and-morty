@@ -13,27 +13,8 @@ window.onload = () => {
 }
 const returnApiCharacter = (id) => `https://rickandmortyapi.com/api/character/${id}`
 const API = `https://rickandmortyapi.com/api/character/`
-// async function returnEpisode (url) {
-//     const response = await fetch(url)
-//     const data = await response.json()
-//     try {
-//         console.log(data.id)
-//     } catch(error) {
-//         console.error(error)
-//     }
-// }
 let maxId = 0
 let operador = "clear"
-// let nombre = document.getElementById("name")
-// let foto = document.getElementById("photo")
-// let especie = document.getElementById("specie")
-// let genero = document.getElementById("gender")
-// let estatus = document.getElementById("status")
-// let origen = document.getElementById("origin")
-// let ubicacion = document.getElementById("location")
-// let firstAp = document.getElementById("first-ap")
-// let lastAp = document.getElementById("last-ap")
-
 async function fetchData(id) {
     const API = returnApiCharacter(id)
 	try {
@@ -85,17 +66,12 @@ async function countId() {
 countId()
 let item = localStorage.getItem("id")
 let id = Number(item)
-// console.log(`maxId ${maxId}`)
-// if (id == 0) {
-//     fetchData(1)
-// } else if (id > maxId) {
-//     fetchData(maxId)
-// } else {
-//     fetchData(id)
-// }
-// console.log(`maxId ${maxId}`)
 console.log(`actual id ${id}`)
-fetchData(id)
+if (id <= 0) {
+    fetchData(1)
+} else {
+    fetchData(id)
+}
 const callToAction = (action) => {
     operador = action
 }

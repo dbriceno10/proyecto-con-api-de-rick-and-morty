@@ -1,4 +1,4 @@
-const returnApiCharacter = (id) => `https://rickandmortyapi.com/api/character/${id}`
+const returnApiCharacter = (API, id) => `${API}${id}`
 const render = (data, dataF, dataL) => {
     templateName.innerHTML = `<b>${data.name}`
     // placeholderBackground.innerHTML = `<b>${data.name}`
@@ -22,9 +22,9 @@ const render = (data, dataF, dataL) => {
     }
 }
 async function fetchData(id) {
-    const API = returnApiCharacter(id)
+    const api = returnApiCharacter(API, id)
 	try {
-		const response = await fetch(API)
+		const response = await fetch(api)
 		const data = await response.json()
         console.log(data)
         const firstAparition = data.episode[0]
@@ -51,7 +51,6 @@ const callToAction = (action) => {
     operador = action
 }
 const changeButton = () => {
-    console.log(maxId)
     if (operador == "+") {
         id+=1
         if (id <= 0) {

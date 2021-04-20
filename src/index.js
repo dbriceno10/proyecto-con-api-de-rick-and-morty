@@ -12,12 +12,10 @@ window.onload = () => {
     // placeholderBackground = document.getElementById("placeholder-background")
     document.onkeydown = keyboard
 }
-
 const API = `https://rickandmortyapi.com/api/character/`
 let maxId = 0
 let operador = "clear"
-
-countId()
+countId(API)
 let item = localStorage.getItem("id")
 let id = Number(item)
 console.log(`actual id ${id}`)

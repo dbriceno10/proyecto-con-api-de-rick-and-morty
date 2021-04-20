@@ -1,4 +1,26 @@
 const returnApiCharacter = (id) => `https://rickandmortyapi.com/api/character/${id}`
+const render = (data, dataF, dataL) => {
+    templateName.innerHTML = `<b>${data.name}`
+    // placeholderBackground.innerHTML = `<b>${data.name}`
+    templateImg.innerHTML = `<img src="${data.image}" alt="${data.name} id: ${data.id}" title="Name: ${data.name} Number(id): ${data.id}">`
+    templateSpecies.innerHTML = `<div class="text">Species: ${data.species}</div>`
+    templateGender.innerHTML = `<div class="text">Gender: ${data.gender}</div>`
+    templateStatus.innerHTML = `<div class="text">Status: ${data.status}</div>`
+    if(data.location.name != data.origin.name) {
+        templateOrigin.innerHTML = `<div class="text">Origin: ${data.origin.name}</div>`
+        templateLocation.innerHTML = `<div class="text">Current Location: ${data.location.name}</div>`
+    } else {
+        templateOrigin.innerHTML = `<div class="text">Origin: ${data.origin.name}</div>`
+        templateLocation.innerHTML = ""
+    }
+    if(dataF.id != dataL.id) {
+        firstAp.innerHTML = `<div class="text">First Aparition: ${dataF.name} (${dataF.episode}) - ${dataF.air_date}</div>`
+        lastAp.innerHTML = `<div class="text">Last Aparition: ${dataL.name} (${dataL.episode}) - ${dataL.air_date}</div>`
+    } else {
+        firstAp.innerHTML = `<div class="text">First Aparition: ${dataF.name} (${dataF.episode}) - ${dataF.air_date}</div>`
+        lastAp.innerHTML = ""
+    }
+}
 async function fetchData(id) {
     const API = returnApiCharacter(id)
 	try {
@@ -11,31 +33,12 @@ async function fetchData(id) {
         const dataF = await responseF.json()
         const responseL = await fetch(LastAparition)
         const dataL = await responseL.json()
-        templateName.innerHTML = `<b>${data.name}`
-        // placeholderBackground.innerHTML = `<b>${data.name}`
-        templateImg.innerHTML = `<img src="${data.image}" alt="${data.name} id: ${data.id}" title="Name: ${data.name} Number(id): ${data.id}">`
-        templateSpecies.innerHTML = `<div class="text">Species: ${data.species}</div>`
-        templateGender.innerHTML = `<div class="text">Gender: ${data.gender}</div>`
-        templateStatus.innerHTML = `<div class="text">Status: ${data.status}</div>`
-        if(data.location.name != data.origin.name) {
-            templateOrigin.innerHTML = `<div class="text">Origin: ${data.origin.name}</div>`
-            templateLocation.innerHTML = `<div class="text">Current Location: ${data.location.name}</div>`
-        } else {
-            templateOrigin.innerHTML = `<div class="text">Origin: ${data.origin.name}</div>`
-            templateLocation.innerHTML = ""
-        }
-        if(dataF.id != dataL.id) {
-            firstAp.innerHTML = `<div class="text">First Aparition: ${dataF.name} (${dataF.episode}) - ${dataF.air_date}</div>`
-            lastAp.innerHTML = `<div class="text">Last Aparition: ${dataL.name} (${dataL.episode}) - ${dataL.air_date}</div>`
-        } else {
-            firstAp.innerHTML = `<div class="text">First Aparition: ${dataF.name} (${dataF.episode}) - ${dataF.air_date}</div>`
-            lastAp.innerHTML = ""
-        }
+        render(data, dataF, dataL)
     } catch (error) {
 		console.log(error)
 	}
 }
-async function countId() {
+async function countId(API) {
     try {
         const response = await fetch(API)
         const data = await response.json()
@@ -48,6 +51,7 @@ const callToAction = (action) => {
     operador = action
 }
 const changeButton = () => {
+    console.log(maxId)
     if (operador == "+") {
         id+=1
         if (id <= 0) {

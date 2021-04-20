@@ -14,7 +14,7 @@ async function fetchData(id) {
         templateName.innerHTML = `<b>${data.name}`
         // placeholderBackground.innerHTML = `<b>${data.name}`
         templateImg.innerHTML = `<img src="${data.image}" alt="${data.name} id: ${data.id}" title="Name: ${data.name} Number(id): ${data.id}">`
-        templateSpecies.innerHTML = `<div class="text">Specie: ${data.species}</div>`
+        templateSpecies.innerHTML = `<div class="text">Species: ${data.species}</div>`
         templateGender.innerHTML = `<div class="text">Gender: ${data.gender}</div>`
         templateStatus.innerHTML = `<div class="text">Status: ${data.status}</div>`
         if(data.location.name != data.origin.name) {

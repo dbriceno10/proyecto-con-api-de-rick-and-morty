@@ -1,13 +1,14 @@
 window.onload = () => {
-    nombre = document.getElementById("name")
-    foto = document.getElementById("photo")
-    especie = document.getElementById("specie")
-    genero = document.getElementById("gender")
-    estatus = document.getElementById("status")
-    origen = document.getElementById("origin")
-    ubicacion = document.getElementById("location")
+    templateName = document.getElementById("name")
+    templateImg= document.getElementById("photo")
+    templateSpecies = document.getElementById("specie")
+    templateGender = document.getElementById("gender")
+    templateStatus = document.getElementById("status")
+    templateOrigin= document.getElementById("origin")
+    templateLocation = document.getElementById("location")
     firstAp = document.getElementById("first-ap")
     lastAp = document.getElementById("last-ap")
+    // placeholderBackground = document.getElementById("placeholder-background")
     document.onkeydown = keyboard
 }
 const returnApiCharacter = (id) => `https://rickandmortyapi.com/api/character/${id}`
@@ -45,20 +46,25 @@ async function fetchData(id) {
         const dataF = await responseF.json()
         const responseL = await fetch(LastAparition)
         const dataL = await responseL.json()
-        nombre.innerHTML = `Name: ${data.name}`
-        foto.innerHTML = `<img src="${data.image}" alt="${data.name} id: ${data.id}" title="Name: ${data.name} Number(id): ${data.id}">`
-        especie.innerHTML = `Specie: ${data.species}`
-        genero.innerHTML = `Gender: ${data.gender}`
-        estatus.innerHTML = `Status: ${data.status}`
+        templateName.innerHTML = `<b>${data.name}`
+        // placeholderBackground.innerHTML = `<b>${data.name}`
+        templateImg.innerHTML = `<img src="${data.image}" alt="${data.name} id: ${data.id}" title="Name: ${data.name} Number(id): ${data.id}">`
+        templateSpecies.innerHTML = `<div class="text">Specie: ${data.species}</div>`
+        templateGender.innerHTML = `<div class="text">Gender: ${data.gender}</div>`
+        templateStatus.innerHTML = `<div class="text">Status: ${data.status}</div>`
         if(data.location.name != data.origin.name) {
-            origen.innerHTML = `Origin: ${data.origin.name}`
-            ubicacion.innerHTML = `Actual Location: ${data.location.name}`
+            templateOrigin.innerHTML = `<div class="text">Origin: ${data.origin.name}</div>`
+            templateLocation.innerHTML = `<div class="text">Current Location: ${data.location.name}</div>`
         } else {
-            origen.innerHTML = `Origin: ${data.origin.name}`
+            templateOrigin.innerHTML = `<div class="text">Origin: ${data.origin.name}</div>`
+            templateLocation.innerHTML = ""
         }
-        firstAp.innerHTML = `First Aparition: ${dataF.name} (${dataF.episode}) On air: ${dataF.air_date}`
         if(dataF.id != dataL.id) {
-            lastAp.innerHTML = `Last Aparition: ${dataL.name} (${dataL.episode}) On air: ${dataL.air_date}`
+            firstAp.innerHTML = `<div class="text">First Aparition: ${dataF.name} (${dataF.episode}) - ${dataF.air_date}</div>`
+            lastAp.innerHTML = `<div class="text">Last Aparition: ${dataL.name} (${dataL.episode}) - ${dataL.air_date}</div>`
+        } else {
+            firstAp.innerHTML = `<div class="text">First Aparition: ${dataF.name} (${dataF.episode}) - ${dataF.air_date}</div>`
+            lastAp.innerHTML = ""
         }
     } catch (error) {
 		console.log(error)

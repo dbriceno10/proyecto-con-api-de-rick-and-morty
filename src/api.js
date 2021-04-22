@@ -19,4 +19,14 @@ export default class API {
             console.log(error)
         }
     }
+    // async getFirstAparition(id) {
+    //     try {
+    //         const response = await fetch(`${this.api}${id}`)
+    //         const data = await response.json()
+    //         const firstAparition = data.episode[0]
+    //         console.log(firstAparition)
+    //     } catch(error) {
+    //         console.log(error)
+    //     }
+    // }
 }

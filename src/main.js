@@ -1,3 +1,6 @@
+window.onload = () => {
+    document.onkeydown = keyboard
+}
 import API from "../src/api.js"
 import Character from "../src/character.js"
 const previusBtn = document.getElementById("previus")
@@ -17,10 +20,8 @@ async function countId(API) {
     }
 }
 countId(RMAPI)
-nextBtn.addEventListener("click", changeNextBtn)
 let item = localStorage.getItem("id")
 let id = Number(item)
-console.log(`actual id ${id}`)
 new_API.getCharacter(id)
 async function changeNextBtn() {
     id+=1
@@ -30,8 +31,7 @@ async function changeNextBtn() {
         id = maxId
     }
     const actualCharacter = await new_API.getCharacter(id)
-    const char = new Character(actualCharacter)
-    console.log(`char ${char}`)
+    new Character(actualCharacter)
     localStorage.setItem("id", id)
     console.log(`new id ${id}`)
 }
@@ -56,16 +56,18 @@ async function appReady(id) {
         actualCharacter = await new_API.getCharacter(id)
         new Character(actualCharacter)
     }
-    console.log(maxId)
+    console.log(`Characters: ${maxId}`)
+    console.log(`actual id ${id}`)
 }
 appReady(id)
-// async function initApp(initCharacterId) {
-//     const characterData = await new_API.getCharacter(initCharacterId)
-//     console.log(characterData)
-//     const char = new Character(characterData)
-//     char.consulta()
-//   }
 
-//   initApp(id)
-// const characterData = await new_API.getCharacter(id)
-// const char = new Character(characterData)
+const keyboard = (ev) => {
+    const eve = ev || window.event
+    let key = eve.keyCode
+    if (key==37) {
+        changePreviusBtn()
+    } 
+    if (key==39) {
+        changeNextBtn()
+    }
+}

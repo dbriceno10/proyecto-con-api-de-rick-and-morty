@@ -1,98 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rick and Morty Data Sheet</title>
-    <link rel="shortcut icon" href="./assets/images/portal.png">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/tablet.css" media="(min-width: 700px)">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rick and Morty Data Sheet</title>
+  <link rel="shortcut icon" href="./assets/images/portal.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/tablet.css" media="(min-width: 700px)">
 </head>
+
 <body>
-    <header>
-        <div><p></p></div>
-        <div><img src="./assets/images/logo@2x.png" width="280"  alt="logo" title="logo"></div>
-    </header>
-    <!-- <div id="placeholder-background"></div> -->
-        <main>
-            <div class="info-container">
-                <!-- <table>
-                    <thead>
-                        <tr>
-                            <th><h2 id="name"></h2></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><div id="photo"></div></td>
-                        </tr>
-                        <tr>
-                            <th><h1>Data Sheet</h1></th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div id="specie" ></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><div id="gender" ></div></td>
-                        </tr>
-                        <tr>
-                            <td><div id="status"></div></td>
-                        </tr>
-                        <tr>
-                            <td><div id="origin"></div></td>
-                        </tr>
-                        <tr>
-                            <td><div id="location"></div></td>
-                        </tr>
-                        <tr>
-                            <td><div id="first-ap" class=></div></td>
-                        </tr>
-                        <tr><td><div id="last-ap" class=></div></td></tr>
-                        <tr>
-                            <td>
-                                <div class="buttons">
-                                    <button class="actionBtn" title="previus"  id="previus"><span class="previus asset"></span></button>
-                                    <button class="actionBtn" title="next"  id="next"><span class="next asset"></span></button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table> -->
-                    <div class="data-container">
-                        <h2 id="name"></h2>
-                        <div id="photo"></div>
-                        <h1>Data Sheet</h1>
-                        <div class="character-info">
-                            <div id="specie" ></div>
-                            <div id="gender" ></div>
-                            <div id="status"></div>
-                            <div id="origin"></div>
-                            <div id="location"></div>
-                            <div id="first-ap" class=></div>
-                            <div id="last-ap" class=></div>
-                        </div>
-                    </div>
-                <div class="buttons-container">
-                    <div class="buttons">
-                        <button class="actionBtn" title="previus"  id="previus"><span class="previus asset"></span></button>
-                        <button class="actionBtn" title="next"  id="next"><span class="next asset"></span></button>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <footer>
-            <div>
-                <!-- <span><a href="https://www.instagram.com/" target="_blank"><img src="./assets/images/instagram.svg" alt="instagram-logo" title="instagram-logo"></a></span>
-                <span><a href="https://www.facebook.com/" target="_blank"><img src="./assets/images/facebook.svg" alt="facebook-logo" title="facebook-logo"></a></span>
-                <span><a href="https://twitter.com/" target="_blank"><img src="./assets/images/twitter.svg" alt="twitter-logo" title="twitter-logo"></a></span> -->
-                <span><a href="https://www.linkedin.com/in/dbriceno10/" target="_blank"><img src="./assets/images/linkedin.png" alt="linkedin-logo" title="linkedin-logo"></a></span>
-                <span><a href="https://github.com/dbriceno10" target="_blank"><img src="./assets/images/github (3).png" alt="github-logo" title="github-logo"></a></span>
-            </div>
-        </footer>
-    <script type="module" src="./src/main.js"></script>
+  <header>
+    <div>
+      <p></p>
+    </div>
+    <div><img src="./assets/images/logo@2x.png" width="280" alt="logo" title="logo"></div>
+  </header>
+  <!-- <div id="placeholder-background"></div> -->
+  <main>
+    <div class="info-container">
+      <div class="data-container">
+        <h2 id="name"></h2>
+        <div id="photo"></div>
+        <h1>Data Sheet</h1>
+        <div class="character-info">
+          <div id="specie"></div>
+          <div id="gender"></div>
+          <div id="status"></div>
+          <div id="origin"></div>
+          <div id="location"></div>
+          <div id="first-ap" class=></div>
+          <div id="last-ap" class=></div>
+        </div>
+      </div>
+      <div class="buttons-container">
+        <div class="buttons">
+          <button class="actionBtn" title="previus" id="previus"><span class="previus asset"></span></button>
+          <button class="actionBtn" title="next" id="next"><span class="next asset"></span></button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div>
+      <span><a href="https://www.linkedin.com/in/dbriceno10/" target="_blank"><img src="./assets/images/linkedin.png"
+            alt="linkedin-logo" title="linkedin-logo"></a></span>
+      <span><a href="https://github.com/dbriceno10" target="_blank"><img src="./assets/images/github (3).png"
+            alt="github-logo" title="github-logo"></a></span>
+    </div>
+  </footer>
+  <script type="module" src="./src/main.js"></script>
 </body>
+
 </html>

@@ -11,13 +11,17 @@ html {
 :root {
   --fount-blue: #00a5be;
   --brown-input: #685128;
-  --red-circle: #F7391C;
+  --red-circle: #f7391c;
 }
 body {
   /* background-color: #048ea3; */
   /* position: relative; */
   /* z-index: 2; */
-  background: linear-gradient(180deg, rgba(0,0,41,1) 35%, rgba(0,165,190,1) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 41, 1) 35%,
+    rgba(0, 165, 190, 1) 100%
+  );
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -99,7 +103,7 @@ main {
   display: flex;
   text-transform: uppercase;
   overflow: hidden;
-  color: rgba(0,0,0,0.3);
+  color: rgba(0, 0, 0, 0.3);
   font-size: 30rem;
   line-height: 30rem;
   position: absolute;
@@ -143,7 +147,7 @@ main h1 {
     inset 0px 7px 10px 0px rgba(0,0,0,1),
     inset 0px 8px 5px 0px rgba(250, 250, 250, .2),
     inset 0px -1px 5px 0px rgba(250, 250, 250, .2); */
-    /* z-index: 2; */
+  /* z-index: 2; */
 }
 
 .text {
@@ -175,7 +179,6 @@ main h1 {
 .buttons {
   width: 100%;
   margin: 0 auto;
-
 }
 .actionBtn {
   background-color: transparent;
@@ -183,7 +186,7 @@ main h1 {
   width: 100px;
   height: 50px;
   margin: 30px;
-  background-color: rgba(0,0,41,0.3);
+  background-color: rgba(0, 0, 41, 0.3);
   border-radius: 16px;
 }
 
@@ -206,7 +209,6 @@ main h1 {
 }
 
 .next {
-
   background-image: url("../assets/images/right-arrow.svg");
 }
 
@@ -218,7 +220,7 @@ footer {
   /* height: 50px; */
   align-items: center;
   /* background-color: #96c64c; */
-  background-color: rgba(0,0,41,0.3);
+  background-color: rgba(0, 0, 41, 0.3);
   padding: 10px;
 }
 
